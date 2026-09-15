@@ -15,7 +15,7 @@ dependencies = []
 [project.urls]
 Homepage = "https://apihorseracing.com"
 Documentation = "https://apihorseracing.com/documentation"
-Source = "https://github.com/apihorseracing/sdk"
+Source = "https://github.com/APIHorseRacing/horse-racing-api-sdk"
 
 [tool.setuptools.packages.find]
 where = ["."]

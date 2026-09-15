@@ -8,10 +8,12 @@ Full API docs: **[https://apihorseracing.com/documentation](https://apihorseraci
 ## Install
 
 ```sh
-go get github.com/apihorseracing/apihorseracing-go
+go get github.com/APIHorseRacing/horse-racing-api-sdk/go
 ```
 
-Go 1.21 or newer. No third-party packages.
+No registry step: Go modules are fetched from the repository itself.
+
+Go 1.21 or newer. No third-party packages. No third-party packages.
 
 ## Getting a key
 
@@ -34,7 +36,7 @@ import (
 	"log"
 	"os"
 
-	apihorseracing "github.com/apihorseracing/apihorseracing-go"
+	apihorseracing "github.com/APIHorseRacing/horse-racing-api-sdk/go"
 )
 
 func main() {

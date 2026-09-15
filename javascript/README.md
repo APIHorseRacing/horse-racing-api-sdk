@@ -8,10 +8,18 @@ Full API docs: **[https://apihorseracing.com/documentation](https://apihorseraci
 ## Install
 
 ```sh
-npm install @apihorseracing/sdk
+npm install apihorseracing
 ```
 
-Node 18 or newer, or any current browser. No third-party packages.
+Not published yet? npm cannot install from a subdirectory of a git repo, so copy
+the two files in — there are no dependencies to resolve:
+
+```sh
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/javascript/index.mjs
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/javascript/index.d.ts
+```
+
+Node 18 or newer, or any current browser. No third-party packages. No third-party packages.
 
 ## Getting a key
 
@@ -25,7 +33,7 @@ anyone who looks; proxy through your own server instead.
 ## Usage
 
 ```js
-import { HorseRacingAPI, ApiError } from "@apihorseracing/sdk";
+import { HorseRacingAPI, ApiError } from "apihorseracing";
 
 const api = new HorseRacingAPI({ apiKey: process.env.AHR_KEY });
 

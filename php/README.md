@@ -11,7 +11,17 @@ Full API docs: **[https://apihorseracing.com/documentation](https://apihorseraci
 composer require apihorseracing/sdk
 ```
 
-PHP 8.1 or newer. No third-party packages.
+Not published yet? Composer expects `composer.json` at the repository root, so a
+VCS entry pointing here will not find it. Copy the two files in instead — PSR-4
+under `ApiHorseRacing\`, with no dependencies:
+
+```sh
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/php/src/Client.php
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/php/src/ApiException.php
+```
+
+PHP 8.1 or newer. Runs on shared hosting: cURL where available, stream wrapper
+where not.
 
 ## Getting a key
 

@@ -7,6 +7,10 @@
 // Zero dependencies, standard library only. Generated from the API's own
 // endpoint registry, so every method here matches a route that exists.
 //
+// Import:
+//
+//	go get github.com/APIHorseRacing/horse-racing-api-sdk/go
+//
 // Docs: https://apihorseracing.com/documentation
 package apihorseracing
 

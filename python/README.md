@@ -8,10 +8,14 @@ Full API docs: **[https://apihorseracing.com/documentation](https://apihorseraci
 ## Install
 
 ```sh
+# from this repo, today
+pip install "git+https://github.com/APIHorseRacing/horse-racing-api-sdk#subdirectory=python"
+
+# once published to PyPI
 pip install apihorseracing
 ```
 
-Python 3.9 or newer. No third-party packages.
+Python 3.9 or newer. No third-party packages. No third-party packages.
 
 ## Getting a key
 

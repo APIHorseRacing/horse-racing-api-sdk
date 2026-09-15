@@ -4,12 +4,15 @@ Official client libraries for the **[Horse Racing API](https://apihorseracing.co
 racecards, form, starting prices and price movement across Britain, Ireland and
 beyond, back to 2017.
 
-| Language | Package | Directory |
-| --- | --- | --- |
-| JavaScript / TypeScript | `@apihorseracing/sdk` (npm) | [`javascript/`](./javascript) |
-| Python | `apihorseracing` (PyPI) | [`python/`](./python) |
-| PHP | `apihorseracing/sdk` (Composer) | [`php/`](./php) |
-| Go | `github.com/apihorseracing/apihorseracing-go` | [`go/`](./go) |
+| Language | Directory | Package name | Registry |
+| --- | --- | --- | --- |
+| JavaScript / TypeScript | [`javascript/`](./javascript) | `apihorseracing` | npm |
+| Python | [`python/`](./python) | `apihorseracing` | PyPI |
+| PHP | [`php/`](./php) | `apihorseracing/sdk` | Packagist |
+| Go | [`go/`](./go) | `github.com/APIHorseRacing/horse-racing-api-sdk/go` | none — fetched from this repo |
+
+The package names are registry names, not GitHub paths. Only Go uses the
+repository path, because that is how Go modules work.
 
 All four cover the same **63 endpoints**, share the same `{ meta, data }`
 envelope and cursor pagination, and have **zero third-party dependencies**.
@@ -44,16 +47,51 @@ exist in this archive, on any plan. The [coverage page](https://apihorseracing.c
 counts every field against every jurisdiction rather than claiming it.
 
 
+## Installing
+
+**Go and Python install straight from this repo today. JavaScript and PHP need
+publishing first**, and that is a limitation of their tooling rather than a
+choice: neither npm nor Composer can install from a subdirectory of a git
+repository, and each client lives in its own folder here.
+
+| | Works from this repo now | After publishing |
+| --- | --- | --- |
+| Go | `go get github.com/APIHorseRacing/horse-racing-api-sdk/go` | nothing more — Go has no registry |
+| Python | `pip install "git+https://github.com/APIHorseRacing/horse-racing-api-sdk#subdirectory=python"` | `pip install apihorseracing` |
+| JavaScript | not directly — see below | `npm install apihorseracing` |
+| PHP | not directly — see below | `composer require apihorseracing/sdk` |
+
+**JavaScript and PHP, before publishing.** Copy the folder in, or vendor it:
+
+```sh
+# JavaScript — two files, no build step
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/javascript/index.mjs
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/javascript/index.d.ts
+
+# PHP — two files, PSR-4 under ApiHorseRacing\
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/php/src/Client.php
+curl -O https://github.com/APIHorseRacing/horse-racing-api-sdk/raw/main/php/src/ApiException.php
+```
+
+Both have zero dependencies, so copying them in is a legitimate option rather
+than a workaround — there is nothing to resolve.
+
+**To publish properly** you need an account on each registry: npmjs.com,
+pypi.org and packagist.org. Packagist reads the repo directly but expects
+`composer.json` at the root, so PHP needs either a subtree split to its own
+repo or the file moved up. Worth deciding before the first release rather than
+after.
+
 ## Quick starts
 
 ### JavaScript / TypeScript
 
 ```sh
-npm install @apihorseracing/sdk
+npm install apihorseracing
 ```
 
 ```js
-import { HorseRacingAPI } from "@apihorseracing/sdk";
+import { HorseRacingAPI } from "apihorseracing";
 
 const api = new HorseRacingAPI({ apiKey: process.env.AHR_KEY });
 
@@ -98,17 +136,26 @@ echo $race['data']['report']['headline'];
 ### Go
 
 ```sh
-go get github.com/apihorseracing/apihorseracing-go
+go get github.com/APIHorseRacing/horse-racing-api-sdk/go
 ```
 
 ```go
+import (
+	apihorseracing "github.com/APIHorseRacing/horse-racing-api-sdk/go"
+)
+
 api := apihorseracing.New(os.Getenv("AHR_KEY"))
 
 race, err := api.Races("rc_1JCCEF7", map[string]string{"include": "report"})
 if err != nil {
-    log.Fatal(err)
+	log.Fatal(err)
 }
 ```
+
+The import **must be aliased**. The module path ends in `/go` because the client
+lives in a subdirectory of the repo, but the package is called
+`apihorseracing` — without the alias the compiler has to guess, and it guesses
+`go`.
 
 ## The envelope
 

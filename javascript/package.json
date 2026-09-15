@@ -1,5 +1,5 @@
 {
-  "name": "@apihorseracing/sdk",
+  "name": "apihorseracing",
   "version": "1.0.0",
   "description": "Official JavaScript client for the Horse Racing API: results, form, starting prices and price movement back to 2017.",
   "type": "module",
@@ -32,8 +32,12 @@
   "homepage": "https://apihorseracing.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apihorseracing/sdk.git"
+    "url": "git+https://github.com/APIHorseRacing/horse-racing-api-sdk.git",
+    "directory": "javascript"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/APIHorseRacing/horse-racing-api-sdk/issues"
+  }
 }
