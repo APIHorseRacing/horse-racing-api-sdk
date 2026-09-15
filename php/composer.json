@@ -1,0 +1,27 @@
+{
+  "name": "apihorseracing/sdk",
+  "description": "Official PHP client for the Horse Racing API: results, form, starting prices and price movement back to 2017.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://apihorseracing.com",
+  "keywords": [
+    "horse racing",
+    "racing",
+    "api",
+    "results",
+    "form",
+    "starting prices",
+    "sports data"
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ApiHorseRacing\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
