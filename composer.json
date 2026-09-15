@@ -1,0 +1,40 @@
+{
+  "name": "apihorseracing/horse-racing-api-php",
+  "description": "Official PHP client for the Horse Racing API: results, form, starting prices and price movement across Britain, Ireland and beyond, back to 2017.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://apihorseracing.com",
+  "keywords": [
+    "horse racing",
+    "racing",
+    "api",
+    "results",
+    "form",
+    "starting prices",
+    "sports data",
+    "racecards"
+  ],
+  "authors": [
+    {
+      "name": "APIHorseRacing.com",
+      "homepage": "https://apihorseracing.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ApiHorseRacing\\": "src/"
+    }
+  },
+  "support": {
+    "issues": "https://github.com/APIHorseRacing/horse-racing-api-php/issues",
+    "source": "https://github.com/APIHorseRacing/horse-racing-api-php",
+    "docs": "https://apihorseracing.com/documentation"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "stable"
+}
